@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: tom
+      changes:
+        - createTable:
+            tableName: vegetable
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: nutritional_benefit
+                  type: varchar(255)
+        - insert:
+            tableName: vegetable
+            columns:
+              - column:
+                  name: description
+                  value: sweet potato
+              - column:
+                  name: nutritional_benefit
+                  value: good source of fibre
+        - insert:
+            tableName: vegetable
+            columns:
+              - column:
+                  name: description
+                  value: spinach
+              - column:
+                  name: nutritional_benefit
+                  value: rich in iron
