@@ -50,3 +50,7 @@ gitProperties {
     gitPropertiesResourceDir = "$buildDir/classes"
     keys = ['git.commit.id']
 }
+
+test {
+    useJUnitPlatform()
+}
