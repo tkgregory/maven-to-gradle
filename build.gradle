@@ -5,16 +5,15 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id 'org.springframework.boot' version '2.2.4.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-    id "com.gorylenko.gradle-git-properties" version "2.2.1"
+    id 'org.springframework.boot' version '2.7.1'
+    id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+    id 'com.gorylenko.gradle-git-properties' version '2.4.1'
 }
 
 repositories {
     mavenLocal()
-    mavenCentral()
     maven {
-        url = 'http://repo.maven.apache.org/maven2'
+        url = uri('https://repo.maven.apache.org/maven2/')
     }
 }
 
@@ -31,7 +30,7 @@ dependencies {
 group = 'com.tomgregory'
 version = '0.0.1-SNAPSHOT'
 description = 'maven-to-gradle'
-sourceCompatibility = '1.8'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 publishing {
     publications {
@@ -46,8 +45,6 @@ tasks.withType(JavaCompile) {
 }
 
 gitProperties {
-    gitPropertiesName = "git.properties"
-    gitPropertiesResourceDir = "$buildDir/classes"
     keys = ['git.commit.id']
 }
 
